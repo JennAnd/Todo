@@ -17,8 +17,10 @@
             <small class="form-text">Please provide the your password (passphrase).</small>
         </div>
 
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="login-button">Login</button>
+
     </form>
 </article>
+
 
 <?php require __DIR__ . '/views/footer.php'; ?>
