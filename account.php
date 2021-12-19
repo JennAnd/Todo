@@ -1,9 +1,10 @@
 <?php require __DIR__ . '/app/autoload.php'; ?>
 <?php require __DIR__ . '/views/header.php'; ?>
 <article>
-    <h1>Create an account</h1>
+    <h5>Not yet a member?</h5><br>
+    <h5>Create an account</h5>
 
-    <form action="app/users/register.php" method="post">
+    <form action="app/users/register.php" method="post" enctype="multipart/form-data">
 
         <div class="mb-3">
             <label for="name">Name</label>
@@ -22,19 +23,15 @@
             <input class="form-control" type="password" name="password" id="password" required>
             <small class="form-text">Please provide the your password (passphrase).</small>
         </div>
-    </form>
 
-    <form action="/" method="post" enctype="multipart/form-data">
 
         <div>
             <label for="avatar">Choose your profile picture to upload</label>
             <input type="file" accept=".jpg, .jpeg, .png" name="avatar" id="avatar" required>
         </div>
 
-        <button type="submit">Upload</button>
 
-
-        <button type="submit" class="account-button">Create an account</button>
+        <button type="submit" class="account-button">Sign up</button>
 
     </form>
 </article>

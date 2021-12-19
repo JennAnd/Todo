@@ -6,7 +6,9 @@ require __DIR__ . '/../autoload.php';
 
 if (isset($_FILES['avatar'])) {
     $avatar = $_FILES['avatar'];
-    move_uploaded_file($avatar['tmp_name'], __DIR__ . '/../assets/images/' . date("Y-m-d H:i:s") . 'avatar.png');
+    $place = __DIR__ . '/../uploads/' . date("y-m-d") . $avatar['name'];
+    move_uploaded_file($avatar['tmp_name'], $place);
+    $message = 'The file was successfully uploaded!';
 }
 
 // To add a users name, not sanitized, ändra allt här nedan(//)
@@ -16,15 +18,15 @@ if (isset($_POST['name'])) {
     $password = $_POST['password'];
     $image = $_FILES['avatar'];
 
-    // Text saying if uploaded image was succefull
+
 
     if ($image['type'] !== 'image/png') {
-        echo 'Ops something went wrong, perhaps the image file type is not allowed.';
+        echo 'Ops ';
     } else {
-        echo 'Welcome you are now a member and can start orgonizing your life!';
+        echo 'Welcome!';
     }
 
 
-    $database->prepare("INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')"); //
+    $database->exec("INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')");
 }
 //redirect('/');//
