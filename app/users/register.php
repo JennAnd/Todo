@@ -4,19 +4,26 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-if (isset($_FILES['avatar'])) {
-    $avatar = $_FILES['avatar'];
-    $place = __DIR__ . '/../uploads/' . date("y-m-d") . $avatar['name'];
-    move_uploaded_file($avatar['tmp_name'], $place);
-    $message = 'The file was successfully uploaded!';
+if (isset($_FILES['profile_image'])) {
+    $image = $_FILES['profile_image'];
+    $place = __DIR__ . '/../uploads/' . date("y-m-d") . $image['name'];
+    move_uploaded_file($image['tmp_name'], $point);
+    //$message = 'The file was successfully uploaded!';//
 }
+//Skapa funktioner i mina issets istället//
 
-// To add a users name, not sanitized, ändra allt här nedan(//)
 if (isset($_POST['name'])) {
-    $name = trim($_POST['name']);
-    $email = $_POST['email'];
+    $name = trim(filter_var(($_POST['name']), FILTER_SANITIZE_STRING));
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL); //VALIDERA?//
     $password = $_POST['password'];
-    $image = $_FILES['avatar'];
+    $image = $_FILES['profile-image'];
+
+    $statement = $database->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
+    $statement->bindParam(':name', $name, PDO::PARAM_STR);
+    $statement->bindParam(':email', $email, PDO::PARAM_STR);
+    $statement->bindParam(':password', $password, PDO::PARAM_STR);
+    // $statement->bindParam(':profile_image', $image, PDO::PARAM_STR);//
+    $statement->execute();
 
 
 

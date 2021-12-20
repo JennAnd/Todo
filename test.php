@@ -14,3 +14,24 @@ $_SESSION['messages'][] = [
 5. //Få in bilden i databasen//
 
 6. //verify password//
+
+
+
+//////////////////////
+i delete.php
+
+<?php
+
+declare(strict_types=1);
+
+if (isset($_GET['id'])) {
+    $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
+
+    $database = new PDO('sqlite:../startrek.db');
+
+    $query = sprintf('DELETE FROM characters WHERE id = %d', $id);
+
+    $statement = $database->query($query);
+}
+
+header('Location: /');
