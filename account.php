@@ -25,10 +25,6 @@
         </div>
 
 
-        <div>
-            <label for="avatar">Choose your profile picture to upload</label>
-            <input type="file" accept=".jpg, .jpeg, .png" name="avatar" id="avatar" required>
-        </div>
 
 
         <button type="submit" class="account-button">Sign up</button>
