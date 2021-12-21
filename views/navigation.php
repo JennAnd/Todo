@@ -20,12 +20,13 @@
 
     <?php else : ?>
         <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/login.php' ? 'active' : ''; ?>" href="/login.php">Sign in</a>
-    <?php endif; ?>
-    </li>
 
-    <li class="nav-item">
-        <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/account.php' ? 'active' : ''; ?>" href="/account.php">Create an account</a>
-    </li>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/account.php' ? 'active' : ''; ?>" href="/account.php">Create an account</a>
+        <?php endif; ?>
+        </li>
 
     </ul>
 </nav>
