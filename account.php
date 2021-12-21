@@ -9,7 +9,7 @@
         <div class="mb-3">
             <label for="name">Name</label>
             <input class="form-control" type="name" name="name" id="email" valuer="name" required>
-            <small class="form-text">Please write your name</small>
+            <small class="form-text">Please provide your name.</small>
         </div>
 
         <div class="mb-3">
