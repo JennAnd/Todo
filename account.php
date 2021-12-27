@@ -1,12 +1,12 @@
 <?php require __DIR__ . '/app/autoload.php'; ?>
 <?php require __DIR__ . '/views/header.php';
 
-if (!isset($_SESSION['error_text'])) {
+/*if (!isset($_SESSION['error_text'])) {
     $errorText = "";
 } else {
     echo $errorText = $_SESSION['error_text'];
     unset($_SESSION['error_text']);
-}
+}*/
 
 
 ?>
@@ -18,8 +18,8 @@ if (!isset($_SESSION['error_text'])) {
 
         <div class="mb-3">
             <label for="name">Name</label>
-            <input class="form-control" type="name" name="name" id="email" valuer="name" required>
-            <small class="form-text">Please provide your name.</small>
+            <input class="form-control" type="name" name="name" id="email" value="name" required>
+            <small class="form-text">Please provide an account name of your choice.</small>
         </div>
 
         <div class="mb-3">
@@ -37,7 +37,7 @@ if (!isset($_SESSION['error_text'])) {
 
         <div class="mb-3">
             <label for="password">Confirm password</label>
-            <input class="form-control" type="password" name="confpassword" id="password" required>
+            <input class="form-control" type="password" name="confPassword" id="confPassword" required>
             <small class="form-text">Please confirm your password (passphrase).</small>
         </div>
 

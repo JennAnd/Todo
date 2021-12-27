@@ -14,22 +14,25 @@
 
 <form action="app/users/changes/email.php" method="post">
     <div class="mb-3">
-        <label for="email">Change your email address</label>
-        <input class="form-control" type="email" name="email" id="email" placeholder="francis@darjeeling.com" required>
+        <label for="changeEmail">Change your email address</label>
+        <input class="form-control" type="email" name="changeEmail" id="changeEmail" placeholder="francis@darjeeling.com" required>
         <small class="form-text">Please provide your new email address.</small>
+        <button type="submit" class="button">Update your new email</button>
     </div>
+</form>
 
+<form action="app/users/changes/password.php" method="post">
     <div class="mb-3">
         <label for="password">New password</label>
-        <input class="form-control" type="password" name="password" id="password" required>
+        <input class="form-control" type="password" name="changePassword" id="changePassword" required>
         <small class="form-text">Please provide your new password (passphrase).</small>
     </div>
 
     <div class="mb-3">
         <label for="password">Confirm password</label>
-        <input class="form-control" type="password" name="confpassword" id="password" required>
+        <input class="form-control" type="password" name="confPassword" id="confPassword" required>
         <small class="form-text">Please confirm your new password (passphrase).</small>
+        <button type="submit" class="button">Update your new password</button>
     </div>
-
-    <button type="submit" class="button">Update information</button>
-    <?php require __DIR__ . '/views/footer.php'; ?>
+</form>
+<?php require __DIR__ . '/views/footer.php'; ?>
