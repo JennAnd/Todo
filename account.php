@@ -1,8 +1,18 @@
 <?php require __DIR__ . '/app/autoload.php'; ?>
-<?php require __DIR__ . '/views/header.php'; ?>
+<?php require __DIR__ . '/views/header.php';
+
+if (!isset($_SESSION['error_text'])) {
+    $errorText = "";
+} else {
+    echo $errorText = $_SESSION['error_text'];
+    unset($_SESSION['error_text']);
+}
+
+
+?>
 <article>
-    <h5>Not yet a member?</h5><br>
-    <h5>Create an account</h5>
+    <h2>Not yet a member?</h2><br>
+    <h3>Create an account</h3>
 
     <form action="app/users/register.php" method="post" enctype="multipart/form-data">
 
@@ -21,7 +31,14 @@
         <div class="mb-3">
             <label for="password">Password</label>
             <input class="form-control" type="password" name="password" id="password" required>
-            <small class="form-text">Please provide the your password (passphrase).</small>
+            <small class="form-text">Please provide your password (passphrase).</small>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="password">Confirm password</label>
+            <input class="form-control" type="password" name="confpassword" id="password" required>
+            <small class="form-text">Please confirm your password (passphrase).</small>
         </div>
 
 
