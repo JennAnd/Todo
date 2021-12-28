@@ -15,7 +15,7 @@
 
             if (isset($_SESSION['user']['profile_image'])) :
         ?>
-                <img class="profile-image" src="/../upload/<?php echo $_SESSION['user']['profile_image'] ?>">
+                <img class="profile-image" src="/upload/<?php echo $_SESSION['user']['profile_image'] ?>">
 
         <?php endif;
         endif; ?>

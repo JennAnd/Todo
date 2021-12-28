@@ -6,3 +6,7 @@ body {
 button {
     background-color: rgb(107, 76, 76);
 }
+.profile-image {
+    width: 200px;
+    height: 200px;
+}

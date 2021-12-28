@@ -9,7 +9,7 @@
         <p>Welcome, <?php echo $_SESSION['user']['name']; ?>! More text</p>
     <?php endif; ?>
     <?php if (isset($_SESSION['user']['profile_image'])) : ?>
-        <img src="/upload/<?php echo $_SESSION['user']['profile_image'] ?>">
+        <img class="profile-image" src="/upload/<?php echo $_SESSION['user']['profile_image'] ?>">
     <?php endif; ?>
 </article>
 
