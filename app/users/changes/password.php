@@ -4,6 +4,14 @@ declare(strict_types=1);
 
 require __DIR__ . '/../../autoload.php';
 
+if ($_SESSION['changePassword'] !== $_SESSION['confPassword']) {
+    echo "Your passwords did not match.";
+    header("Location: /../../profile.php");
+    exit();
+};
+
+
+
 if (isset($_POST['changePassword'])) {
 
     $changePassword = password_hash($_POST['changePassword'], PASSWORD_DEFAULT);
@@ -18,6 +26,7 @@ if (isset($_POST['changePassword'])) {
     $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
 
     $sql->execute();
+    $_SESSION['changePassword'] = "Your new password was successfully uploaded!";
 };
 
-redirect('/');
+redirect('/profile.php');

@@ -12,7 +12,7 @@ if (isset($_FILES['profile_image'])) {
     $endFile =  __DIR__ . '/../../uploads/' . $image;
     $imageTemp = $_FILES['profile_image']['tmp_name'];
     move_uploaded_file($imageTemp, $endFile);
-    $message = 'The file is uploaded';
+
 
 
     $insertSQL = ("UPDATE users SET profile_image = :profile_image WHERE id = :id");
@@ -25,15 +25,16 @@ if (isset($_FILES['profile_image'])) {
 
     $sql->execute();
 
-    /*  $sql = $database->prepare('SELECT * FROM users WHERE id = :id');
+    $sql = $database->prepare('SELECT * FROM users WHERE id = :id');
 
     $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
 
     $sql->execute();
 
-    $_SESSION['user'] = $sql->fetch(PDO::FETCH_ASSOC);*/
+    $_SESSION['user'] = $sql->fetch(PDO::FETCH_ASSOC);
+    $_SESSION['profile_image'] = "Your profile image was sucessfully uploaded!";
 };
 
 
 
-redirect('/');
+redirect('/profile.php');

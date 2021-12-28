@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/assets/styles/app.css">
 </head>
 
+
 <body>
     <?php require __DIR__ . '/navigation.php'; ?>
 
