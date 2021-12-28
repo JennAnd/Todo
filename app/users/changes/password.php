@@ -6,7 +6,7 @@ require __DIR__ . '/../../autoload.php';
 
 if ($_POST['changePassword'] !== $_POST['confPassword']) {
     echo "Your passwords did not match.";
-    header("Location: /../../profile.php");
+    /* header("Location: /../../profile.php");*/
     exit();
 };
 
