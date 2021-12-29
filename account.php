@@ -41,6 +41,7 @@
             <label for="password">Confirm password</label>
             <input class="form-control" type="password" name="confPassword" id="confPassword" required>
             <small class="form-text">Please confirm your password (passphrase).</small>
+
         </div>
 
 

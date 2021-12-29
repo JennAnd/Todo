@@ -48,11 +48,11 @@
         <small class="form-text">Please provide your new password (passphrase).</small>
 
     </div>
-    <?php if (isset($_SESSION['changePassword'])) :
-        echo $_SESSION['changePassword'];
-        unset($_SESSION['changePassword']);
+    <?php if (isset($_SESSION['successMessage'])) :
+        echo $_SESSION['successMessage'];
+        unset($_SESSION['successMessage']);
 
-        if (isset($_SESSION['user']['changePassword'])) :
+        if (isset($_SESSION['user']['successMessage'])) :
         endif;
     endif;
     ?>
@@ -64,5 +64,12 @@
         <small class="form-text">Please confirm your new password (passphrase).</small>
         <button type="submit" class="button">Update your new password</button>
     </div>
+    <?php if (isset($_SESSION['errorMessage'])) :
+        echo $_SESSION['errorMessage'];
+        unset($_SESSION['errorMessage']);
+
+
+    endif;
+    ?>
 </form>
 <?php require __DIR__ . '/views/footer.php'; ?>

@@ -4,11 +4,7 @@ declare(strict_types=1);
 
 require __DIR__ . '/../../autoload.php';
 
-if ($_POST['changePassword'] !== $_POST['confPassword']) {
-    echo "Your passwords did not match.";
-    /* header("Location: /../../profile.php");*/
-    exit();
-};
+
 
 
 
@@ -26,7 +22,20 @@ if (isset($_POST['changePassword'])) {
     $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
 
     $sql->execute();
-    $_SESSION['changePassword'] = "Your new password was successfully uploaded!";
 };
+
+if ($_POST['changePassword'] === $_POST['confPassword']) {
+    $_SESSION['successMessage'] = "Your new password was successfully uploaded!";
+    header("location: /../../profile.php");
+    exit();
+};
+
+if ($_POST['changePassword'] !== $_POST['confPassword']) {
+    $_SESSION['errorMessage'] = "Passwords did not match. Please try again!";
+    header("location: /../../profile.php");
+    exit();
+};
+
+
 
 redirect('/profile.php');
