@@ -1,12 +1,77 @@
+@font-face {
+    font-family: 'Antic';
+    src: url('/assets/fonts/Antic-Regular.ttf');
+}
+
 body {
-    background-color: rgb(68, 27, 27);
+    background-color: rgb(90, 53, 53);
+    color: whitesmoke;
+    font-family: 'Antic';
+}
+
+a.navbar-brand {
+    font-size: xx-large;
+    color: whitesmoke;
+}
+
+label {
+    font-size: large;
+    
+}
+
+a.nav-link {
     color: whitesmoke;
 }
 
 button {
-    background-color: rgb(107, 76, 76);
+    background-color: rgb(71, 49, 49);
+    color: whitesmoke;
 }
-.profile-image {
-    width: 200px;
-    height: 200px;
+
+button.button {
+    margin-top: 10px;
+    border-radius: 4px;
+    padding: 6px 15px;
+}
+
+
+img.profile-image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+
+}
+
+.success-message {
+    color: rgb(54, 228, 54);
+   
+}
+
+.error-message {
+    color: red;
+    
+}
+p.footer {
+font-size: 0.8rem;
+margin: 1rem;
+display: flex;
+position: fixed;
+bottom: auto;
+
+}
+@media screen and (min-width: 450px) {
+    a.nav-link {
+        font-size: 22px;
+        margin-right: 25px;
+        margin-left: 25px;
+}
+.success-message {
+    font-size: large;
+}
+
+.error-message {
+    font-size: large;
+}
+
 }

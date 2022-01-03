@@ -1,7 +1,11 @@
 <?php require __DIR__ . '/app/autoload.php'; ?>
 <?php require __DIR__ . '/views/header.php'; ?>
 
-
+<?php if (isset($_SESSION['user']['profile_image'])) :
+?>
+    <img class="profile-image" src="/upload/<?php echo $_SESSION['user']['profile_image'] ?>">
+<?php endif;
+?>
 <h2>Edit you profile</h2><br>
 <form action="/app/users/changes/uploads.php" method="post" enctype="multipart/form-data">
     <div class="mb-3">
@@ -9,15 +13,16 @@
         <input type="file" accept=".jpg, .jpeg, .png" name="profile_image" id="profile_image" required>
         <small class="form-text"> Formats accepted: jpg, jpeg or png. </small>
         <button type="submit" class="button">Change profile picture</button>
-        <?php if (isset($_SESSION['profile_image'])) :
+
+    </div>
+    <div class="success-message">
+        <?php
+        if (isset($_SESSION['profile_image'])) :
             echo $_SESSION['profile_image'];
             unset($_SESSION['profile_image']);
 
-            if (isset($_SESSION['user']['profile_image'])) :
-        ?>
-                <img class="profile-image" src="/upload/<?php echo $_SESSION['user']['profile_image'] ?>">
 
-        <?php endif;
+
         endif; ?>
     </div>
 
@@ -30,13 +35,15 @@
         <input class="form-control" type="email" name="changeEmail" id="changeEmail" placeholder="francis@darjeeling.com" required>
         <small class="form-text">Please provide your new email address.</small>
         <button type="submit" class="button">Update your new email</button>
-        <?php if (isset($_SESSION['changeEmail'])) :
-            echo $_SESSION['changeEmail'];
-            unset($_SESSION['changeEmail']);
+        <div class="success-message">
+            <?php if (isset($_SESSION['changeEmail'])) :
+                echo $_SESSION['changeEmail'];
+                unset($_SESSION['changeEmail']);
 
-            if (isset($_SESSION['user']['changeEmail'])) :
-            endif;
-        endif; ?>
+                if (isset($_SESSION['user']['changeEmail'])) :
+                endif;
+            endif; ?>
+        </div>
     </div>
 
 </form><br>
@@ -48,15 +55,16 @@
         <small class="form-text">Please provide your new password (passphrase).</small>
 
     </div>
-    <?php if (isset($_SESSION['successMessage'])) :
-        echo $_SESSION['successMessage'];
-        unset($_SESSION['successMessage']);
+    <div class="success-message">
+        <?php if (isset($_SESSION['successMessage'])) :
+            echo $_SESSION['successMessage'];
+            unset($_SESSION['successMessage']);
 
-        if (isset($_SESSION['user']['successMessage'])) :
+            if (isset($_SESSION['user']['successMessage'])) :
+            endif;
         endif;
-    endif;
-    ?>
-
+        ?>
+    </div>
     <br>
     <div class="mb-3">
         <label for="password">Confirm password</label>
@@ -64,12 +72,14 @@
         <small class="form-text">Please confirm your new password (passphrase).</small>
         <button type="submit" class="button">Update your new password</button>
     </div>
-    <?php if (isset($_SESSION['errorMessage'])) :
-        echo $_SESSION['errorMessage'];
-        unset($_SESSION['errorMessage']);
+    <div class="error-message">
+        <?php if (isset($_SESSION['errorMessage'])) :
+            echo $_SESSION['errorMessage'];
+            unset($_SESSION['errorMessage']);
 
 
-    endif;
-    ?>
+        endif;
+        ?>
+    </div>
 </form>
 <?php require __DIR__ . '/views/footer.php'; ?>

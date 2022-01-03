@@ -18,7 +18,7 @@ if (isset($_POST['changeEmail'])) {
     $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
 
     $sql->execute();
-    $_SESSION['changeEmail'] = "Your new email address was successfully uploaded!" . $_SESSION['user']['email'];
+    $_SESSION['changeEmail'] = "Your new email address was successfully uploaded!";
 };
 
 redirect('/profile.php');

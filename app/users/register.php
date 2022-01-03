@@ -5,7 +5,7 @@ declare(strict_types=1);
 require __DIR__ . '/../autoload.php';
 
 
-//Skapa funktioner i mina issets istället//
+
 
 if (isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['confPassword'])) {
     $name = trim(filter_var(($_POST['name']), FILTER_SANITIZE_STRING));
@@ -21,6 +21,13 @@ if (isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['confPassw
 
     $statement->execute();
 }
+
+
+if ($_POST['password'] !== $_POST['confPassword']) {
+    $_SESSION['errorMessage'] = "Passwords did not match. Please try again!";
+    header("location: /../../account.php");
+    exit();
+};
 
 
 redirect('/');

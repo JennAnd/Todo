@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg">
     <a class="navbar-brand" href="#"><?php echo $config['title']; ?></a>
 
     <ul class="navbar-nav">
@@ -7,7 +7,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/about.php' ? 'active' : ''; ?>" href="/about.php">About</a>
+            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/about.php' ? 'active' : ''; ?>" href="/about.php">View tasks</a>
         </li>
 
         <li class="nav-item">

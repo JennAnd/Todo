@@ -1,8 +1,11 @@
 <?php require __DIR__ . '/app/autoload.php'; ?>
 <?php require __DIR__ . '/views/header.php'; ?>
 
-
+<?php if (isset($_SESSION['user']['profile_image'])) : ?>
+    <img class="profile-image" src="/upload/<?php echo $_SESSION['user']['profile_image'] ?>">
+<?php endif; ?>
 <h2>Create tasks</h2><br>
+
 
 <form action="app/users/tasks/tasks.php" method="post" enctype="multipart/form-data">
 
@@ -17,7 +20,7 @@
     <div class="mb-3">
 
         <label for="description">Description</label>
-        <input class="form-control" type="description" name="description" id="description" value="describe bla bla" required>
+        <input class="form-control" type="description" name="description" id="description" value="describe your task" required>
         <small class="form-text">Description</small>
 
     </div>
