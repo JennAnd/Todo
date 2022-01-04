@@ -7,19 +7,15 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/about.php' ? 'active' : ''; ?>" href="/about.php">View tasks</a>
-        </li>
-
-        <li class="nav-item">
             <?php if (isset($_SESSION['user'])) : ?>
                 <a class="nav-link" href="/app/users/logout.php">Logout</a>
 
         <li class="nav-item">
-            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/profile.php' ? 'active' : ''; ?>" href="/profile.php">Edit profile</a>
+            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/profile.php' ? 'active' : ''; ?>" href="/profile.php">Your To-Do list</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/task.php' ? 'active' : ''; ?>" href="/task.php">To-do List</a>
+            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/task.php' ? 'active' : ''; ?>" href="/task.php">Create list</a>
         </li>
 
     <?php else : ?>

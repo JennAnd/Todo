@@ -32,7 +32,7 @@
             <label for="password">Confirm password</label>
             <input class="form-control" type="password" name="confPassword" id="confPassword" required>
             <small class="form-text">Please confirm your password (passphrase).</small>
-            <button type="submit" class="account-button">Sign up</button>
+            <button type="submit" class="button">Sign up</button>
         </div>
         <div class="error-message">
             <?php if (isset($_SESSION['errorMessage'])) :

@@ -13,6 +13,12 @@ if (isset($_POST['changePassword'])) {
     $changePassword = password_hash($_POST['changePassword'], PASSWORD_DEFAULT);
 
 
+
+    if ($_POST['changePassword'] !== $_POST['confPassword']) {
+        $_SESSION['errorMessage'] = "Passwords did not match. Please try again!";
+        redirect(" /profile.php");
+    }
+
     $insertSQL = ("UPDATE users SET password = :password WHERE id = :id");
 
     $sql = $database->prepare($insertSQL);
@@ -22,19 +28,12 @@ if (isset($_POST['changePassword'])) {
     $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
 
     $sql->execute();
-};
 
-if ($_POST['changePassword'] === $_POST['confPassword']) {
     $_SESSION['successMessage'] = "Your new password was successfully uploaded!";
-    header("location: /../../profile.php");
-    exit();
-};
+    redirect("/profile.php");
+}
 
-if ($_POST['changePassword'] !== $_POST['confPassword']) {
-    $_SESSION['errorMessage'] = "Passwords did not match. Please try again!";
-    header("location: /../../profile.php");
-    exit();
-};
+
 
 
 

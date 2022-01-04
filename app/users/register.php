@@ -11,8 +11,11 @@ if (isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['confPassw
     $name = trim(filter_var(($_POST['name']), FILTER_SANITIZE_STRING));
     $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $confPassword = password_hash($_POST['confPassword'], PASSWORD_DEFAULT);
 
+    if ($_POST['password'] !== $_POST['confPassword']) {
+        $_SESSION['errorMessage'] = "Passwords did not match. Please try again!";
+        redirect("/account.php");
+    }
 
     $statement = $database->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
     $statement->bindParam(':name', $name, PDO::PARAM_STR);
@@ -23,11 +26,6 @@ if (isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['confPassw
 }
 
 
-if ($_POST['password'] !== $_POST['confPassword']) {
-    $_SESSION['errorMessage'] = "Passwords did not match. Please try again!";
-    header("location: /../../account.php");
-    exit();
-};
 
 
 redirect('/');
