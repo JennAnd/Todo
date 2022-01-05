@@ -56,7 +56,13 @@ img.profile-image {
     
 }
 
-.hidden {
+
+
+.hidden-tasks {
+    display: none;
+}
+
+.hidden-form {
     display: none;
 }
 
@@ -72,6 +78,7 @@ table {
 button .task-button {
    display: flex;
    margin-left: 50vh;
+   
 }
 
 
@@ -83,7 +90,11 @@ button .task-button {
     
 }
 
-.showTasks {
+.show-tasks {
+    display: flex;
+}
+
+.show-form {
     display: flex;
 }
 

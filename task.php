@@ -8,7 +8,9 @@
 
 <?php
 
-$viewLists = viewLists($database); ?>
+$viewLists = viewLists($database);
+
+?>
 
 
 <h2>Create Lists</h2>
@@ -22,35 +24,69 @@ $viewLists = viewLists($database); ?>
 
 </form>
 
-<table class="list-table">
-    <thead>
-        <tr>
-            <th class="table-text">Lists</th>
-        </tr>
-    </thead>
-    <thead>
+<?php
+$lists = viewLists($database);
+foreach ($lists as $list) :
 
-        <tr class="column">
-            <?php
-            $lists = viewLists($database);
-            foreach ($lists as $list) :
+?>
+    <table class="list-table">
+        <thead>
+            <tr>
+                <th class="table-text">Lists</th>
+            </tr>
+        </thead>
+        <thead>
 
-            ?>
+            <tr class="column">
 
                 <td><?= $list['title']; ?></td>
 
-                <td><button type="submit" name="submit" class="task-button">Add task</button> </td>
-            <?php endforeach; ?>
-
-
-        </tr>
-
-    </thead>
-</table>
+                <td><button type="submit" name="submit" class="task-button">View and add tasks</button> </td>
 
 
 
-<table class="hidden">
+            </tr>
+
+        </thead>
+
+
+        </form>
+
+        <details>
+            <summery>Add new task</summery>
+            <form class="hidden-form" action="app/users/tasks/tasks.php" method="post" enctype="multipart/form-data">
+                <h2>Add task</h2>
+                <div class="mb-3">
+
+                    <label for="task">Title</label>
+                    <input class="form-control" type="title" name="title" id="title" value="name your task" required>
+                    <small class="form-text">Create a new task</small>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label for="description">Description</label>
+                    <input class="form-control" type="description" name="description" id="description" value="describe your task" required>
+                    <small class="form-text">Description</small>
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <label for="deadline">Deadline</label>
+                    <input class="form-control" type="date" name="deadline" id="deadline" value="dd-mm-yyyy" required>
+                    <small class="form-text">Choose date</small>
+                    <button type="submit" class="button">Add task</button>
+                </div>
+
+                <input type="hidden" name="list_id" value="<?= $list['id']; ?>">
+            </form>
+        </details>
+    </table>
+<?php endforeach; ?>
+<table class="hidden-tasks">
     <thead>
         <tr>
 
@@ -76,37 +112,5 @@ $viewLists = viewLists($database); ?>
         </tr>
     </thead>
 </table>
-</form>
-
-
-<form class="hidden" action="app/users/tasks/tasks.php" method="post" enctype="multipart/form-data">
-    <h2>Add task</h2><br>
-    <div class="mb-3">
-
-        <label for="task">Title</label>
-        <input class="form-control" type="title" name="title" id="title" value="name your task" required>
-        <small class="form-text">Create a new task</small>
-
-    </div>
-
-    <div class="mb-3">
-
-        <label for="description">Description</label>
-        <input class="form-control" type="description" name="description" id="description" value="describe your task" required>
-        <small class="form-text">Description</small>
-
-    </div>
-
-
-    <div class="mb-3">
-
-        <label for="deadline">Deadline</label>
-        <input class="form-control" type="date" name="deadline" id="deadline" value="dd-mm-yyyy" required>
-        <small class="form-text">Choose date</small>
-        <button type="submit" class="button">Add task</button>
-    </div>
-</form>
-
-
 
 <?php require __DIR__ . '/views/footer.php'; ?>
