@@ -16,7 +16,7 @@ if (isset($_POST['changePassword'])) {
 
     if ($_POST['changePassword'] !== $_POST['confPassword']) {
         $_SESSION['errorMessage'] = "Passwords did not match. Please try again!";
-        redirect(" /profile.php");
+        redirect('/update.php');
     }
 
     $insertSQL = ("UPDATE users SET password = :password WHERE id = :id");
@@ -30,7 +30,7 @@ if (isset($_POST['changePassword'])) {
     $sql->execute();
 
     $_SESSION['successMessage'] = "Your new password was successfully uploaded!";
-    redirect("/profile.php");
+    redirect("/update.php");
 }
 
 

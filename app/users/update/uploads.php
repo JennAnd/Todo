@@ -37,4 +37,4 @@ if (isset($_FILES['profile_image'])) {
 
 
 
-redirect('/profile.php');
+redirect('/update.php');

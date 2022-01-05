@@ -21,4 +21,4 @@ if (isset($_POST['changeEmail'])) {
     $_SESSION['changeEmail'] = "Your new email address was successfully uploaded!";
 };
 
-redirect('/profile.php');
+redirect('/update.php');

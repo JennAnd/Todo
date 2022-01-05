@@ -7,7 +7,7 @@
 <?php endif;
 ?>
 <h2>Edit you profile</h2><br>
-<form action="/app/users/changes/uploads.php" method="post" enctype="multipart/form-data">
+<form action="/app/users/update/uploads.php" method="post" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="profile_image">Choose your profile picture to upload</label><br>
         <input type="file" accept=".jpg, .jpeg, .png" name="profile_image" id="profile_image" required>
@@ -29,10 +29,10 @@
 </form><br>
 
 
-<form action="app/users/changes/email.php" method="post">
+<form action="app/users/update/email.php" method="post">
     <div class="mb-3">
         <label for="changeEmail">Change your email address</label>
-        <input class="form-control" type="email" name="changeEmail" id="changeEmail" placeholder="francis@darjeeling.com" required>
+        <input class="form-control" type="email" name="changeEmail" id="changeEmail" placeholder="jennifer@jenn.com" required>
         <small class="form-text">Please provide your new email address.</small>
         <button type="submit" class="button">Update your new email</button>
         <div class="success-message">
@@ -48,7 +48,7 @@
 
 </form><br>
 
-<form action="app/users/changes/password.php" method="post">
+<form action="app/users/update/password.php" method="post">
     <div class="mb-3">
         <label for="password">New password</label>
         <input class="form-control" type="password" name="changePassword" id="changePassword" required>

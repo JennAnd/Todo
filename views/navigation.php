@@ -11,11 +11,11 @@
                 <a class="nav-link" href="/app/users/logout.php">Logout</a>
 
         <li class="nav-item">
-            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/profile.php' ? 'active' : ''; ?>" href="/profile.php">Your To-Do list</a>
+            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/update.php' ? 'active' : ''; ?>" href="/update.php">Edit your profile</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/task.php' ? 'active' : ''; ?>" href="/task.php">Create list</a>
+            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/create.php' ? 'active' : ''; ?>" href="/create.php">Create list</a>
         </li>
 
     <?php else : ?>
@@ -24,7 +24,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/account.php' ? 'active' : ''; ?>" href="/account.php">Create an account</a>
+            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/register.php' ? 'active' : ''; ?>" href="/register.php">Create an account</a>
         <?php endif; ?>
         </li>
 

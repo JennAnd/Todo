@@ -14,7 +14,7 @@ if (isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['confPassw
 
     if ($_POST['password'] !== $_POST['confPassword']) {
         $_SESSION['errorMessage'] = "Passwords did not match. Please try again!";
-        redirect("/account.php");
+        redirect("/register.php");
     }
 
     $statement = $database->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
