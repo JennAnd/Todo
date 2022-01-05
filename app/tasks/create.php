@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require __DIR__ . '/../../autoload.php';
+require __DIR__ . '/../autoload.php';
 
 
 
@@ -24,6 +24,6 @@ if (isset($_POST['title'], $_POST['description'], $_POST['deadline'])) {
 
 
     $statement->execute();
-    $_SESSION['user'][] = $sql->fetch(PDO::FETCH_ASSOC);
+    $_SESSION['user'][] = $statement->fetch(PDO::FETCH_ASSOC);
 }
-redirect('/create.php');
+redirect('/../../create.php');

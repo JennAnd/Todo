@@ -26,18 +26,25 @@ foreach ($lists as $list) :
     <section>
 
         <h3><?= $list['title']; ?></h3>
-        <?php $tasks = fetchTasks($database, $list['id']);
-        foreach ($tasks as $taskFetch) :
-        ?>
-            <p><?php echo $taskFetch['title']; ?></p>
-            <p><?php echo $taskFetch['description']; ?></p>
-            <p><?php echo $taskFetch['deadline']; ?></p>
-        <?php endforeach; ?>
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Description</th>
+                <th>Deadline</th>
+            </tr>
+            <?php $tasks = fetchTasks($database, $list['id']);
+            foreach ($tasks as $taskFetch) :
+            ?>
+
+                <tr>
+                    <td><?php echo $taskFetch['title']; ?></td>
+                    <td><?php echo $taskFetch['description']; ?></td>
+                    <td><?php echo $taskFetch['deadline']; ?></td>
+                </tr>
+        </table>
+
+    <?php endforeach; ?>
     </section>
-
-
-
-
 
     <details>
         <summary>Add new task</summary>
@@ -73,31 +80,5 @@ foreach ($lists as $list) :
     </details>
     </table>
 <?php endforeach; ?>
-<table class="hidden-tasks">
-    <thead>
-        <tr>
-
-            <th>Task</th>
-            <th>Description</th>
-            <th>Deadline</th>
-            <th>Edit</th>
-            <th>Check</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-    <thead>
-        <tr>
-
-            <td class="task"></td>
-            <td class="description"></td>
-            <td><input type="date" name="deadline"></td>
-            <td class="edit"></td>
-            <td><input type="checkbox" class="check">
-            <td class="delete">
-                <a href="#">X</a>
-            </td>
-        </tr>
-    </thead>
-</table>
 
 <?php require __DIR__ . '/views/footer.php'; ?>
