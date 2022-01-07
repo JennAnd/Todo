@@ -18,5 +18,7 @@ if (isset($_POST['title'], $_POST['list_id'])) {
     $statement->bindParam(':list_id', $listId, PDO::PARAM_INT);
 
     $statement->execute();
+
+    $_SESSION['user'][] = $statement->fetch(PDO::FETCH_ASSOC);
 }
 redirect('/../../create.php');
