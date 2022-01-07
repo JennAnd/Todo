@@ -29,6 +29,15 @@ foreach ($lists as $list) :
     <section>
 
         <h3><?= $list['title']; ?></h3><button class="button">Delete list</button>
+
+
+
+        <form action="/update-lists.php" method="POST">
+            <input type="hidden" name="id" value="<?= $updateLists['id'] ?>" />
+            <button class="button">Edit list</button>
+        </form>
+
+
         <table>
             <tr class="column-wrapper">
                 <th class="column-title">Completed</th>
