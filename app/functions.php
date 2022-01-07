@@ -29,7 +29,7 @@ function fetchTasks(PDO $database, int $listId): array
     return $tasks;
 }
 
-
+/*
 function getTasks(PDO $database): array
 {
     $sql = $database->prepare('SELECT * tasks, lists.title FROM tasks INNER JOIN lists ON tasks.list_id = lists.id WHERE lists.user_id = :id AND list_id = :list_id');
@@ -40,3 +40,4 @@ function getTasks(PDO $database): array
     $getAllTasks = $sql->fetchAll(PDO::FETCH_ASSOC);
     return $getAllTasks;
 }
+*/

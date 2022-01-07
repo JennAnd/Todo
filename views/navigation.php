@@ -15,6 +15,10 @@
         </li>
 
         <li class="nav-item">
+            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/deadlines.php' ? 'active' : ''; ?>" href="/deadlines.php">Todays deadlines</a>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/create.php' ? 'active' : ''; ?>" href="/create.php">Create list</a>
         </li>
 
