@@ -105,10 +105,15 @@ button .task-button {
     margin-bottom: 30px;
 }
 
-div .new-list {
-    height: 30px;
+.deadline-container {
+    height: 500px;
     width: auto;
 }
+
+/*div .new-list {
+    height: 30px;
+    width: auto;
+}*/
 
 
 @media screen and (min-width: 450px) {

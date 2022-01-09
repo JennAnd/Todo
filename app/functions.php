@@ -29,6 +29,24 @@ function fetchTasks(PDO $database, int $listId): array
     return $tasks;
 }
 
+
+
+
+function taskDeadline(PDO $database): array
+{
+    $date = date('Y-m-d');
+    /*$userId = $_SESSION['user']['id'];*/
+    $statement = $database->prepare("SELECT * FROM tasks WHERE user_id = :id AND deadline = :deadline");
+    $statement->bindParam(':deadline', $date, PDO::PARAM_STR);
+    $statement->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
+
+    $statement->execute();
+    $taskDeadline = $statement->fetch(PDO::FETCH_ASSOC);
+    return $taskDeadline;
+}
+
+
+
 /*
 function getTasks(PDO $database): array
 {
