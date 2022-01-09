@@ -110,6 +110,23 @@ button .task-button {
     width: auto;
 }
 
+.button-container {
+flex-direction: row;
+margin-right: 8px;
+display: flex;
+gap: 8px;
+}
+
+.title-container {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+
+.title-text {
+    padding: 20px;
+}
+
 /*div .new-list {
     height: 30px;
     width: auto;

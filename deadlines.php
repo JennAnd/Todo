@@ -10,52 +10,59 @@
 ?>
 <h2>Todays deadlines</h2><br>
 
-<div class="deadline-container">
-    <table>
-        <tr class="column-wrapper">
-            <th class="column-title">Completed</th>
-            <th class="column-title">Title</th>
-            <th class="column-title">Description</th>
-            <th class="column-title">Deadline</th>
-            <th class="column-title">Edit</th>
-            <th class="column-title">Delete</th>
-        </tr>
+
+<div class="list-container">
+    <div class="deadline-container">
+        <table>
+            <tr class="column-wrapper">
+                <th class="column-title">Completed</th>
+                <th class="column-title">Title</th>
+                <th class="column-title">Description</th>
+                <th class="column-title">Deadline</th>
+                <th class="column-title">Edit</th>
+                <th class="column-title">Delete</th>
+            </tr>
 
 
 
-
-
-
-
-        <tr>
-            <?php foreach ($taskDeadline as $taskDeadlines) : ?>
-
-                <td><?php echo $taskDeadlines['title']; ?></td>
-                <td><?php echo $taskDeadlines['description']; ?></td>
-                <td><?php echo $taskDeadlines['deadline']; ?></td>
-
-                <td>
-                    <section>
-
-                        <form action="/update-tasks.php" method="POST">
-                            <input type="hidden" name="id" value="<?= $taskDeadlines['id'] ?>" />
-                            <button type="submit">✎</button>
+            <tr>
+                <?php foreach ($taskDeadline as $taskDeadlines) : ?>
+                    <td>
+                        <form action="/app/tasks/update.php" method="POST">
+                            <input type="hidden" name="id" value="<?= $taskFetch['id'] ?>" />
+                            <input type="checkbox" name="checkBox" value="">
+                            <button type="submit" name="submitCheckBox">check</button>
                         </form>
-                    </section>
-                </td>
-                <td>
-                    <section>
-                        <form action="/app/tasks/delete.php" method="POST">
-                            <input type="hidden" name="id" value="<?= $taskDeadlines['id'] ?>" />
-                            <button type="submit">X</button>
-                        </form>
-                    </section>
-                </td>
-        </tr>
+                    </td>
+                    <td><?php echo $taskDeadlines['title']; ?></td>
+                    <td><?php echo $taskDeadlines['description']; ?></td>
+                    <td><?php echo $taskDeadlines['deadline']; ?></td>
+
+                    <td>
+                        <section>
+
+                            <form action="/update-tasks.php" method="POST">
+                                <input type="hidden" name="id" value="<?= $taskDeadlines['id'] ?>" />
+                                <button type="submit">✎</button>
+                            </form>
+                        </section>
+                    </td>
+                    <td>
+                        <section>
+                            <form action="/app/tasks/deadlines.php" method="POST">
+                                <input type="hidden" name="id" value="<?= $taskDeadlines['id'] ?>" />
+                                <button type="submit">X</button>
+                            </form>
+
+                        </section>
+                    </td>
+            </tr>
+    </div>
 </div>
+
 <?php
 
-            endforeach; ?>
+                endforeach; ?>
 
 </table>
 </div>

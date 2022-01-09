@@ -36,12 +36,12 @@ function taskDeadline(PDO $database): array
 {
     $date = date('Y-m-d');
     /*$userId = $_SESSION['user']['id'];*/
-    $statement = $database->prepare("SELECT * FROM tasks WHERE user_id = :id AND deadline = :deadline");
+    $statement = $database->prepare('SELECT * FROM tasks WHERE deadline = :deadline AND user_id = :id');
     $statement->bindParam(':deadline', $date, PDO::PARAM_STR);
     $statement->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
 
     $statement->execute();
-    $taskDeadline = $statement->fetch(PDO::FETCH_ASSOC);
+    $taskDeadline = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $taskDeadline;
 }
 

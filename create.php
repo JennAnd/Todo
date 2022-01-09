@@ -29,19 +29,25 @@ foreach ($lists as $list) :
 
 
     <div class="list-container">
-        <h3><?= $list['title']; ?></h3>
+        <div class="title-container">
+            <div class="title-text">
+                <h3><?= $list['title']; ?></h3>
+            </div>
+            <div class="button-container">
+                <form action="/app/lists/delete.php" method="post">
+                    <input type="hidden" name="id" value="<?= $list['id'] ?>" />
+                    <button class="button" type="submit">X</button>
+                </form>
 
-        <form action="/app/lists/delete.php" method="post">
-            <input type="hidden" name="id" value="<?= $list['id'] ?>" />
-            <button class="button" type="submit">X</button>
-        </form>
 
 
-        <form action="/update-lists.php" method="post">
-            <input type="hidden" name="id" value="<?= $list['id'] ?>" />
-            <button class="button">✎</button>
-        </form>
+                <form action="/update-lists.php" method="post">
+                    <input type="hidden" name="id" value="<?= $list['id'] ?>" />
+                    <button class="button">✎</button>
 
+                </form>
+            </div>
+        </div>
 
         <table>
             <tr class="column-wrapper">
@@ -88,53 +94,55 @@ foreach ($lists as $list) :
                         </section>
                     </td>
                 </tr>
-    </div>
-<?php endforeach; ?>
 
-</table>
-</div>
+            <?php endforeach; ?>
 
-<!--jkjkjkj-->
+        </table>
 
-<details>
-    <summary>Add new task</summary>
-    <div class="new-list">
-        <form action="/app/tasks/create.php" method="post" enctype="multipart/form-data">
-            <h2>Add task</h2>
-            <input type="hidden" name="list_id" value="<?= $list['id']; ?>">
-            <div class="mb-3">
+
+        <!--jkjkjkj-->
+
+        <details>
+            <summary>Add new task</summary>
+
+            <div class="new-list">
+
+                <form action="/app/tasks/create.php" method="post" enctype="multipart/form-data">
+                    <h2>Add task</h2>
+                    <input type="hidden" name="list_id" value="<?= $list['id']; ?>">
+                    <div class="mb-3">
+                    </div>
+                    <label for="task">Title</label>
+                    <input class="form-control" type="title" name="title" id="title" value="name your task" required>
+                    <small class="form-text">Create a new task</small>
+
             </div>
-            <label for="task">Title</label>
-            <input class="form-control" type="title" name="title" id="title" value="name your task" required>
-            <small class="form-text">Create a new task</small>
+
+            <div class="mb-3">
+
+                <label for="description">Description</label>
+                <input class="form-control" type="description" name="description" id="description" value="describe your task" required>
+                <small class="form-text">Description</small>
+
+
+            </div>
+
+
+            <div class="mb-3">
+
+                <label for="deadline">Deadline</label>
+                <input class="form-control" type="date" name="deadline" id="deadline" value="dd-mm-yyyy" required>
+                <small class="form-text">Choose date</small>
+
+                <button type="submit" class="task-button">Add task</button>
+            </div>
 
     </div>
-
-    <div class="mb-3">
-
-        <label for="description">Description</label>
-        <input class="form-control" type="description" name="description" id="description" value="describe your task" required>
-        <small class="form-text">Description</small>
-
-
-    </div>
-
-
-    <div class="mb-3">
-
-        <label for="deadline">Deadline</label>
-        <input class="form-control" type="date" name="deadline" id="deadline" value="dd-mm-yyyy" required>
-        <small class="form-text">Choose date</small>
-
-        <button type="submit" class="task-button">Add task</button>
-    </div>
-
-
     </form>
-</details>
+    </details>
 
 
-</table>
+    </table>
 <?php endforeach; ?>
 
 <?php require __DIR__ . '/views/footer.php'; ?>
