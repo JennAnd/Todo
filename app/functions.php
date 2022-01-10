@@ -10,6 +10,11 @@ function redirect(string $path)
     exit;
 }
 
+
+
+
+//hhh//
+
 function viewLists(PDO $database): array
 {
     $sql = $database->prepare('SELECT * FROM lists WHERE user_id = :id');
@@ -19,6 +24,11 @@ function viewLists(PDO $database): array
     $viewLists = $sql->fetchAll(PDO::FETCH_ASSOC);
     return $viewLists;
 }
+
+
+
+
+//hhh//
 
 function fetchTasks(PDO $database, int $listId): array
 {
@@ -32,10 +42,11 @@ function fetchTasks(PDO $database, int $listId): array
 
 
 
+//hhh//
+
 function taskDeadline(PDO $database): array
 {
     $date = date('Y-m-d');
-    /*$userId = $_SESSION['user']['id'];*/
     $statement = $database->prepare('SELECT * FROM tasks WHERE deadline = :deadline AND user_id = :id');
     $statement->bindParam(':deadline', $date, PDO::PARAM_STR);
     $statement->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
@@ -44,18 +55,3 @@ function taskDeadline(PDO $database): array
     $taskDeadline = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $taskDeadline;
 }
-
-
-
-/*
-function getTasks(PDO $database): array
-{
-    $sql = $database->prepare('SELECT * tasks, lists.title FROM tasks INNER JOIN lists ON tasks.list_id = lists.id WHERE lists.user_id = :id AND list_id = :list_id');
-    $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
-    $sql->bindParam(':list_id', $listId, PDO::PARAM_INT);
-    $sql->execute();
-
-    $getAllTasks = $sql->fetchAll(PDO::FETCH_ASSOC);
-    return $getAllTasks;
-}
-*/

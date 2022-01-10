@@ -63,36 +63,42 @@ foreach ($lists as $list) :
             foreach ($tasks as $taskFetch) :
             ?>
 
-                <tr>
-                    <td>
-                        <form action="/app/tasks/update.php" method="POST">
+
+
+                <td>
+                    <form class="completed-tasks" action="/app/tasks/update.php" method="POST">
+                        <input type="hidden" name="id" value="<?= $taskFetch['id'] ?>">
+
+                        <input type="checkbox" name="completed" id="completed" <?= $taskFetch['completed'] ? 'checked' : '' ?>>
+
+                        <label for="completed">
+
+
+                        </label>
+
+                    </form>
+                </td>
+                <td class="column-info"><?php echo $taskFetch['title']; ?></td>
+                <td class="column-info"><?php echo $taskFetch['description']; ?></td>
+                <td class="column-info"><?php echo $taskFetch['deadline']; ?></td>
+
+                <td>
+                    <section>
+
+                        <form action="/update-tasks.php" method="POST">
                             <input type="hidden" name="id" value="<?= $taskFetch['id'] ?>" />
-                            <input type="checkbox" name="checkBox" value="">
-                            <button type="submit" name="submitCheckBox">check</button>
+                            <button type="submit">✎</button>
                         </form>
-                    </td>
-
-                    <td><?php echo $taskFetch['title']; ?></td>
-                    <td><?php echo $taskFetch['description']; ?></td>
-                    <td><?php echo $taskFetch['deadline']; ?></td>
-
-                    <td>
-                        <section>
-
-                            <form action="/update-tasks.php" method="POST">
-                                <input type="hidden" name="id" value="<?= $taskFetch['id'] ?>" />
-                                <button type="submit">✎</button>
-                            </form>
-                        </section>
-                    </td>
-                    <td>
-                        <section>
-                            <form action="/app/tasks/delete.php" method="POST">
-                                <input type="hidden" name="id" value="<?= $taskFetch['id'] ?>" />
-                                <button type="submit">X</button>
-                            </form>
-                        </section>
-                    </td>
+                    </section>
+                </td>
+                <td>
+                    <section>
+                        <form action="/app/tasks/delete.php" method="POST">
+                            <input type="hidden" name="id" value="<?= $taskFetch['id'] ?>" />
+                            <button type="submit">X</button>
+                        </form>
+                    </section>
+                </td>
                 </tr>
 
             <?php endforeach; ?>

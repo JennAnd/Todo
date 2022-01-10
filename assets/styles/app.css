@@ -46,6 +46,7 @@ img.profile-image {
 
 }
 
+
 .success-message {
     color: rgb(54, 228, 54);
    
@@ -55,7 +56,6 @@ img.profile-image {
     color: red;
     
 }
-
 
 
 .hidden-tasks {
@@ -90,6 +90,15 @@ button .task-button {
     
 }
 
+.column-title {
+    font-size: smaller;
+}
+
+.column-info {
+    font-size: small;
+
+}
+
 .show-tasks {
     display: flex;
 }
@@ -97,7 +106,6 @@ button .task-button {
 .show-form {
     display: flex;
 }
-
 
 
 .list-container {
@@ -124,13 +132,21 @@ justify-content: space-between;
 }
 
 .title-text {
-    padding: 20px;
+    padding: 8px;
 }
 
-/*div .new-list {
-    height: 30px;
-    width: auto;
-}*/
+
+@media screen and (min-width: 996px) {
+    .column-title {
+        font-size: larger;
+    }
+    
+    .column-info {
+        font-size: medium;
+    
+    }
+}
+    
 
 
 @media screen and (min-width: 450px) {

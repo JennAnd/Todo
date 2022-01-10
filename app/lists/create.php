@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
+//hhh//
+
 if (isset($_POST['title'])) {
     $title = trim(filter_var($_POST['title'], FILTER_SANITIZE_STRING));
     $sql = $database->prepare("INSERT INTO lists (title, user_id) VALUES (:list, :user_id)");

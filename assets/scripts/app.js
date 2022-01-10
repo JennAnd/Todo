@@ -1,15 +1,5 @@
-/*const taskButton = document.querySelectorAll('.task-button');
-const hiddenTasks = document.querySelector('.hidden-tasks');
-const hiddenForm = document.querySelector('.hidden-form');
+const form = document.querySelector('.completed-tasks');
+    const task = document.querySelector('input[type=checkbox]');
 
-taskButton.forEach((taskButtons) => {
-  taskButtons.addEventListener('click', () => {
-    hiddenTasks.classList.toggle('show-tasks');
-  });
-});
-
-taskButton.forEach((taskButtons) => {
-    taskButtons.addEventListener('click', () => {
-      hiddenForm.classList.toggle('show-form');
-    });
-  });*/
+    // When the user clicks on the checkbox the form will automagically submit.
+    task.addEventListener('click', () => form.submit());

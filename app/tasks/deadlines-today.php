@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
+//hhh//
+
 if (isset($_POST['id'])) {
     $taskID = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
 
@@ -13,4 +15,4 @@ if (isset($_POST['id'])) {
     $sql->execute();
 }
 
-redirect('/../../deadlines.php');
+redirect('/../../deadlines-today.php');

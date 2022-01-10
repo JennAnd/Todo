@@ -51,7 +51,7 @@
 <form action="app/users/update/password.php" method="post">
     <div class="mb-3">
         <label for="password">New password</label>
-        <input class="form-control" type="password" name="changePassword" id="changePassword" required>
+        <input class="form-control" type="password" name="changePassword" id="changePassword" minlength="16" required>
         <small class="form-text">Please provide your new password (passphrase).</small>
 
     </div>
