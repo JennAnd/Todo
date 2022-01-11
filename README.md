@@ -1,4 +1,4 @@
-INSERT MANDATORY GIF
+<img src="https://media.giphy.com/media/3o6MbhbYBsqTrbP2qQ/giphy.gif">
 
 # Todo
 
