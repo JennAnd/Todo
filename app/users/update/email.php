@@ -5,9 +5,7 @@ declare(strict_types=1);
 require __DIR__ . '/../../autoload.php';
 
 if (isset($_POST['changeEmail'])) {
-
     $changeEmail = trim(filter_var($_POST['changeEmail'], FILTER_VALIDATE_EMAIL));
-
 
     $insertSQL = ("UPDATE users SET email = :email WHERE id = :id");
 

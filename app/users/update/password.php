@@ -9,9 +9,7 @@ require __DIR__ . '/../../autoload.php';
 
 
 if (isset($_POST['changePassword'])) {
-
     $changePassword = password_hash($_POST['changePassword'], PASSWORD_DEFAULT);
-
 
 
     if ($_POST['changePassword'] !== $_POST['confPassword']) {

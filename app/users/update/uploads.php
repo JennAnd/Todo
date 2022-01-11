@@ -6,14 +6,10 @@ require __DIR__ . '/../../autoload.php';
 
 
 if (isset($_FILES['profile_image'])) {
-
     $image = trim(filter_var($_FILES['profile_image']['name'], FILTER_SANITIZE_STRING));
-
     $endFile =  __DIR__ . '/../../../upload/' . $image;
     $imageTemp = $_FILES['profile_image']['tmp_name'];
     move_uploaded_file($imageTemp, $endFile);
-
-
 
     $insertSQL = ("UPDATE users SET profile_image = :profile_image WHERE id = :id");
 

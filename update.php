@@ -1,8 +1,7 @@
 <?php require __DIR__ . '/app/autoload.php'; ?>
 <?php require __DIR__ . '/views/header.php'; ?>
 
-<?php if (isset($_SESSION['user']['profile_image'])) :
-?>
+<?php if (isset($_SESSION['user']['profile_image'])) : ?>
     <img class="profile-image" src="/upload/<?php echo $_SESSION['user']['profile_image'] ?>" alt="users profile picture">
 <?php endif;
 ?>
@@ -20,9 +19,6 @@
         if (isset($_SESSION['profile_image'])) :
             echo $_SESSION['profile_image'];
             unset($_SESSION['profile_image']);
-
-
-
         endif; ?>
     </div>
 
@@ -76,10 +72,7 @@
         <?php if (isset($_SESSION['errorMessage'])) :
             echo $_SESSION['errorMessage'];
             unset($_SESSION['errorMessage']);
-
-
-        endif;
-        ?>
+        endif; ?>
     </div>
 </form>
 <?php require __DIR__ . '/views/footer.php'; ?>

@@ -5,8 +5,6 @@
     <img class="profile-image" src="/upload/<?php echo $_SESSION['user']['profile_image'] ?>" alt="users profile picture">
 <?php endif; ?>
 
-
-
 <h2>Create Lists</h2>
 <form action="/app/lists/create.php" method="post">
     <div class="mb-3 listForm">
@@ -17,15 +15,9 @@
     <br>
 
 </form>
-
-
-
-
 <?php
 $viewLists = fetchListsById($database);
-foreach ($viewLists as $list) :
-
-?>
+foreach ($viewLists as $list) : ?>
 
 
     <div class="list-container">
@@ -39,16 +31,12 @@ foreach ($viewLists as $list) :
                     <button class="button" type="submit">X</button>
                 </form>
 
-
-
                 <form action="/update-lists.php" method="post">
                     <input type="hidden" name="id" value="<?= $list['id'] ?>" />
                     <button class="button">✎</button>
-
                 </form>
             </div>
         </div>
-
         <table>
             <tr class="column-wrapper">
                 <th class="column-title">Completed</th>
@@ -60,24 +48,14 @@ foreach ($viewLists as $list) :
                 <th class="column-title">Delete</th>
             </tr>
 
-
             <?php $tasks = fetchTasksById($database, $list['id']);
-            foreach ($tasks as $taskFetch) :
-            ?>
-
-
-
+            foreach ($tasks as $taskFetch) : ?>
                 <td>
                     <form class="completed-tasks" action="/app/tasks/update.php" method="POST">
                         <input type="hidden" name="id" value="<?= $taskFetch['id'] ?>">
-
                         <input type="checkbox" name="completed" id="completed" <?= $taskFetch['completed'] ? 'checked' : '' ?>>
-
                         <label for="completed">
-
-
                         </label>
-
                     </form>
                 </td>
                 <td class="column-info"><?php echo $taskFetch['title']; ?></td>
@@ -86,7 +64,6 @@ foreach ($viewLists as $list) :
 
                 <td>
                     <section>
-
                         <form action="/update-tasks.php" method="POST">
                             <input type="hidden" name="id" value="<?= $taskFetch['id'] ?>" />
                             <button type="submit">✎</button>
@@ -102,11 +79,8 @@ foreach ($viewLists as $list) :
                     </section>
                 </td>
                 </tr>
-
             <?php endforeach; ?>
-
         </table>
-
 
         <!--jkjkjkj-->
 
@@ -118,29 +92,20 @@ foreach ($viewLists as $list) :
                     <form action="/app/tasks/create.php" method="post" enctype="multipart/form-data">
                         <h2>Add task</h2>
                         <input type="hidden" name="list_id" value="<?= $list['id']; ?>">
-
-
                         <label for="task">Title</label>
                         <input class="form-control" type="title" name="title" id="title" value="name your task" required>
-
                 </div>
             </div>
 
             <div class="mb-3">
-
                 <label for="description">Description</label>
                 <input class="form-control" type="description" name="description" id="description" value="describe your task" required>
-
-
-
             </div>
 
 
             <div class="mb-3">
-
                 <label for="deadline">Deadline</label>
                 <input class="form-control" type="date" name="deadline" id="deadline" value="dd-mm-yyyy" required>
-
             </div>
 
             <button type="submit" class="task-button">Add task</button>
@@ -148,8 +113,6 @@ foreach ($viewLists as $list) :
     </div>
     </form>
     </details>
-
-
     </table>
 <?php endforeach; ?>
 

@@ -38,14 +38,7 @@
             <?php if (isset($_SESSION['errorMessage'])) :
                 echo  $_SESSION['errorMessage'];
                 unset($_SESSION['errorMessage']);
-
-
-            endif;
-            ?>
+            endif; ?>
         </div>
-
-
-
-
     </form>
 </article>
