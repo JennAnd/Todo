@@ -15,4 +15,4 @@ if (isset($_POST['id'])) {
     $sql->execute();
 }
 
-redirect('/../../create.php');
+redirect($_SERVER['HTTP_REFERER']);

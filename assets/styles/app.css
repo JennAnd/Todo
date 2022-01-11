@@ -1,6 +1,7 @@
 @font-face {
     font-family: 'Antic';
-    src: url('/assets/fonts/Antic-Regular.ttf');
+    src: url('/assets/fonts/Antic-Regular.woff');
+    src: url('/assets/fonts/Antic-Regular.woff2');
 }
 
 body {

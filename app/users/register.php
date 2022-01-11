@@ -17,6 +17,13 @@ if (isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['confPassw
         redirect("/register.php");
     }
 
+    $password = $_POST['password'];
+
+    if (strlen($password) < 16) {
+        $_SESSION['errorMessage'] = "Password must be at least 16 characters long!";
+        redirect("/register.php");
+    }
+
     $statement = $database->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
     $statement->bindParam(':name', $name, PDO::PARAM_STR);
     $statement->bindParam(':email', $email, PDO::PARAM_STR);

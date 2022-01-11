@@ -15,7 +15,7 @@ function redirect(string $path)
 
 //hhh//
 
-function viewLists(PDO $database): array
+function fetchListsById(PDO $database): array
 {
     $sql = $database->prepare('SELECT * FROM lists WHERE user_id = :id');
     $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
@@ -30,7 +30,7 @@ function viewLists(PDO $database): array
 
 //hhh//
 
-function fetchTasks(PDO $database, int $listId): array
+function fetchTasksById(PDO $database, int $listId): array
 {
     $sql = $database->prepare('SELECT * FROM tasks WHERE list_id = :id');
     $sql->bindParam(':id', $listId, PDO::PARAM_INT);
@@ -44,7 +44,7 @@ function fetchTasks(PDO $database, int $listId): array
 
 //hhh//
 
-function taskDeadline(PDO $database): array
+function taskDeadlineToday(PDO $database): array
 {
     $date = date('Y-m-d');
     $statement = $database->prepare('SELECT * FROM tasks WHERE deadline = :deadline AND user_id = :id');
@@ -52,6 +52,6 @@ function taskDeadline(PDO $database): array
     $statement->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
 
     $statement->execute();
-    $taskDeadline = $statement->fetchAll(PDO::FETCH_ASSOC);
-    return $taskDeadline;
+    $taskDeadlines = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $taskDeadlines;
 }

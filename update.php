@@ -3,13 +3,13 @@
 
 <?php if (isset($_SESSION['user']['profile_image'])) :
 ?>
-    <img class="profile-image" src="/upload/<?php echo $_SESSION['user']['profile_image'] ?>">
+    <img class="profile-image" src="/upload/<?php echo $_SESSION['user']['profile_image'] ?>" alt="users profile picture">
 <?php endif;
 ?>
 <h2>Edit you profile</h2><br>
 <form action="/app/users/update/uploads.php" method="post" enctype="multipart/form-data">
     <div class="mb-3">
-        <label for="profile_image">Choose your profile picture to upload</label><br>
+        <label for="profile_image">Choose your profile picture to upload</label>
         <input type="file" accept=".jpg, .jpeg, .png" name="profile_image" id="profile_image" required>
         <small class="form-text"> Formats accepted: jpg, jpeg or png. </small>
         <button type="submit" class="button">Change profile picture</button>
@@ -26,7 +26,7 @@
         endif; ?>
     </div>
 
-</form><br>
+</form>
 
 
 <form action="app/users/update/email.php" method="post">
@@ -46,12 +46,12 @@
         </div>
     </div>
 
-</form><br>
+</form>
 
 <form action="app/users/update/password.php" method="post">
     <div class="mb-3">
         <label for="password">New password</label>
-        <input class="form-control" type="password" name="changePassword" id="changePassword" minlength="16" required>
+        <input class="form-control" type="password" name="changePassword" id="changePassword" required>
         <small class="form-text">Please provide your new password (passphrase).</small>
 
     </div>
@@ -65,7 +65,7 @@
         endif;
         ?>
     </div>
-    <br>
+    <br><br>
     <div class="mb-3">
         <label for="password">Confirm password</label>
         <input class="form-control" type="password" name="confPassword" id="confPassword" required>

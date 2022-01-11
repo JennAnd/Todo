@@ -1,11 +1,11 @@
 <?php require __DIR__ . '/app/autoload.php'; ?>
 <?php require __DIR__ . '/views/header.php'; ?>
 
-<?php $taskDeadline = taskDeadline($database); ?>
+<?php $taskDeadlines = taskDeadlineToday($database); ?>
 
 <?php if (isset($_SESSION['user']['profile_image'])) :
 ?>
-    <img class="profile-image" src="/upload/<?php echo $_SESSION['user']['profile_image'] ?>">
+    <img class="profile-image" src="/upload/<?php echo $_SESSION['user']['profile_image'] ?>" alt="users profile picture">
 <?php endif;
 ?>
 <h2>Todays deadlines</h2><br>
@@ -26,12 +26,12 @@
 
 
         <tr>
-            <?php foreach ($taskDeadline as $taskDeadlines) : ?>
+            <?php foreach ($taskDeadlines as $taskDeadline) : ?>
                 <td>
-                    <form class="completed-tasks" action="/app/tasks/update.php" method="POST">
-                        <input type="hidden" name="id" value="<?= $taskFetch['id'] ?>">
+                    <form class="completed-tasks" action="/app/tasks/deadlines-today.php" method="POST">
+                        <input type="hidden" name="id" value="<?= $taskDeadline['id'] ?>">
 
-                        <input type="checkbox" name="completed" id="completed" <?= $taskFetch['completed'] ? 'checked' : '' ?>>
+                        <input type="checkbox" name="completed" id="completed" <?= $taskDeadline['completed'] ? 'checked' : '' ?>>
 
                         <label for="completed">
 
@@ -40,23 +40,23 @@
 
                     </form>
                 </td>
-                <td><?php echo $taskDeadlines['title']; ?></td>
-                <td><?php echo $taskDeadlines['description']; ?></td>
-                <td><?php echo $taskDeadlines['deadline']; ?></td>
+                <td><?php echo $taskDeadline['title']; ?></td>
+                <td><?php echo $taskDeadline['description']; ?></td>
+                <td><?php echo $taskDeadline['deadline']; ?></td>
 
                 <td>
                     <section>
 
                         <form action="/update-tasks.php" method="POST">
-                            <input type="hidden" name="id" value="<?= $taskDeadlines['id'] ?>" />
+                            <input type="hidden" name="id" value="<?= $taskDeadline['id'] ?>" />
                             <button type="submit">✎</button>
                         </form>
                     </section>
                 </td>
                 <td>
                     <section>
-                        <form action="/app/tasks/deadlines-today.php" method="POST">
-                            <input type="hidden" name="id" value="<?= $taskDeadlines['id'] ?>" />
+                        <form action="/app/tasks/delete.php" method="POST">
+                            <input type="hidden" name="id" value="<?= $taskDeadline['id'] ?>" />
                             <button type="submit">X</button>
                         </form>
 

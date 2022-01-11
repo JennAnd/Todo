@@ -2,7 +2,7 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
 <?php if (isset($_SESSION['user']['profile_image'])) : ?>
-    <img class="profile-image" src="/upload/<?php echo $_SESSION['user']['profile_image'] ?>">
+    <img class="profile-image" src="/upload/<?php echo $_SESSION['user']['profile_image'] ?>" alt="users profile picture">
 <?php endif; ?>
 
 
@@ -22,8 +22,8 @@
 
 
 <?php
-$lists = viewLists($database);
-foreach ($lists as $list) :
+$viewLists = fetchListsById($database);
+foreach ($viewLists as $list) :
 
 ?>
 
@@ -59,7 +59,9 @@ foreach ($lists as $list) :
                 <th class="column-title">Edit</th>
                 <th class="column-title">Delete</th>
             </tr>
-            <?php $tasks = fetchTasks($database, $list['id']);
+
+
+            <?php $tasks = fetchTasksById($database, $list['id']);
             foreach ($tasks as $taskFetch) :
             ?>
 
@@ -112,23 +114,23 @@ foreach ($lists as $list) :
             <summary>Add new task</summary>
 
             <div class="new-list">
+                <div class="mb-3">
+                    <form action="/app/tasks/create.php" method="post" enctype="multipart/form-data">
+                        <h2>Add task</h2>
+                        <input type="hidden" name="list_id" value="<?= $list['id']; ?>">
 
-                <form action="/app/tasks/create.php" method="post" enctype="multipart/form-data">
-                    <h2>Add task</h2>
-                    <input type="hidden" name="list_id" value="<?= $list['id']; ?>">
-                    <div class="mb-3">
-                    </div>
-                    <label for="task">Title</label>
-                    <input class="form-control" type="title" name="title" id="title" value="name your task" required>
-                    <small class="form-text">Create a new task</small>
 
+                        <label for="task">Title</label>
+                        <input class="form-control" type="title" name="title" id="title" value="name your task" required>
+
+                </div>
             </div>
 
             <div class="mb-3">
 
                 <label for="description">Description</label>
                 <input class="form-control" type="description" name="description" id="description" value="describe your task" required>
-                <small class="form-text">Description</small>
+
 
 
             </div>
@@ -138,10 +140,10 @@ foreach ($lists as $list) :
 
                 <label for="deadline">Deadline</label>
                 <input class="form-control" type="date" name="deadline" id="deadline" value="dd-mm-yyyy" required>
-                <small class="form-text">Choose date</small>
 
-                <button type="submit" class="task-button">Add task</button>
             </div>
+
+            <button type="submit" class="task-button">Add task</button>
 
     </div>
     </form>

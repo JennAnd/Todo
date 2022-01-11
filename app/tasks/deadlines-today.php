@@ -6,13 +6,25 @@ require __DIR__ . '/../autoload.php';
 
 //hhh//
 
+
+
 if (isset($_POST['id'])) {
-    $taskID = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
+    $id = $_POST['id'];
+    $isCompleted = isset($_POST['completed']);
 
+    if ($isCompleted) {
+        $checkBox = 1;
+    } else {
+        $checkBox = 0;
+    }
 
-    $sql = $database->prepare('DELETE FROM tasks WHERE id = :id');
-    $sql->bindParam(':id', $taskID, PDO::PARAM_INT);
-    $sql->execute();
+    $statement = $database->prepare("UPDATE tasks SET completed = :completed WHERE id = :id");
+
+    $statement->bindParam(':completed', $checkBox, PDO::PARAM_BOOL);
+    $statement->bindParam(':id', $id, PDO::PARAM_INT);
+    $statement->execute();
 }
+
+
 
 redirect('/../../deadlines-today.php');

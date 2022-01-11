@@ -19,6 +19,13 @@ if (isset($_POST['changePassword'])) {
         redirect('/update.php');
     }
 
+    $changePassword = $_POST['changePassword'];
+
+    if (strlen($changePassword) < 16) {
+        $_SESSION['errorMessage'] = "Password must be at least 16 characters long!";
+        redirect('/update.php');
+    }
+
     $insertSQL = ("UPDATE users SET password = :password WHERE id = :id");
 
     $sql = $database->prepare($insertSQL);
