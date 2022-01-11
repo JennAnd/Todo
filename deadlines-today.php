@@ -3,8 +3,7 @@
 
 <?php $taskDeadlines = taskDeadlineToday($database); ?>
 
-<?php if (isset($_SESSION['user']['profile_image'])) :
-?>
+<?php if (isset($_SESSION['user']['profile_image'])) : ?>
     <img class="profile-image" src="/upload/<?php echo $_SESSION['user']['profile_image'] ?>" alt="users profile picture">
 <?php endif;
 ?>
@@ -64,15 +63,8 @@
                 </td>
         </tr>
 </div>
-
-
-<?php
-
-            endforeach; ?>
-
+<?php endforeach; ?>
 </table>
 </div>
 </div>
-
-
 <?php require __DIR__ . '/views/footer.php'; ?>

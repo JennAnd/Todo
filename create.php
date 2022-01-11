@@ -15,11 +15,8 @@
     <br>
 
 </form>
-<?php
-$viewLists = fetchListsById($database);
+<?php $viewLists = fetchListsById($database);
 foreach ($viewLists as $list) : ?>
-
-
     <div class="list-container">
         <div class="title-container">
             <div class="title-text">

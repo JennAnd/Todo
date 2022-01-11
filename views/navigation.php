@@ -21,16 +21,13 @@
         <li class="nav-item">
             <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/create.php' ? 'active' : ''; ?>" href="/create.php">Create list</a>
         </li>
-
     <?php else : ?>
         <li class="nav-item">
             <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/login.php' ? 'active' : ''; ?>" href="/login.php">Sign in</a>
         </li>
-
         <li class="nav-item">
             <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/register.php' ? 'active' : ''; ?>" href="/register.php">Create an account</a>
-        <?php endif; ?>
         </li>
-
+    <?php endif; ?>
     </ul>
 </nav>
