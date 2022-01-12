@@ -7,7 +7,6 @@ require __DIR__ . '/../autoload.php';
 //hhh//
 
 
-
 if (isset($_POST['id'])) {
     $id = $_POST['id'];
     $isCompleted = isset($_POST['completed']);

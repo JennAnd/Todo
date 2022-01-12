@@ -5,8 +5,8 @@
 
 <?php if (isset($_SESSION['user']['profile_image'])) : ?>
     <img class="profile-image" src="/upload/<?php echo $_SESSION['user']['profile_image'] ?>" alt="users profile picture">
-<?php endif;
-?>
+<?php endif; ?>
+
 <h2>Todays deadlines</h2><br>
 
 <div class="deadline-container">

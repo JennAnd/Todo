@@ -13,20 +13,16 @@ if (isset($_POST['id'])) {
     $updateLists = $sql->fetch(PDO::FETCH_ASSOC);
 }
 ?>
+
 <form action="/app/lists/update.php" method="post" enctype="multipart/form-data">
     <h2>Edit list</h2>
     <div class="mb-3">
-
         <label for="task">Title</label>
         <input type="hidden" name="id" value="<?= $updateLists['id'] ?>" />
         <input class="form-control" name="title" value="<?= $updateLists['title'] ?>" required>
         <small class="form-text">Edit title</small>
-
-
     </div>
     <button class="button">Edit list</button>
-
-
     </div>
 
     <?php require __DIR__ . '/views/footer.php'; ?>

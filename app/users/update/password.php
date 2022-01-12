@@ -7,7 +7,6 @@ require __DIR__ . '/../../autoload.php';
 
 
 
-
 if (isset($_POST['changePassword'])) {
     $changePassword = password_hash($_POST['changePassword'], PASSWORD_DEFAULT);
 
@@ -37,8 +36,6 @@ if (isset($_POST['changePassword'])) {
     $_SESSION['successMessage'] = "Your new password was successfully uploaded!";
     redirect("/update.php");
 }
-
-
 
 
 

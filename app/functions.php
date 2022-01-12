@@ -9,8 +9,6 @@ function redirect(string $path)
 }
 
 
-
-
 //hhh//
 
 function fetchListsById(PDO $database): array
@@ -24,8 +22,6 @@ function fetchListsById(PDO $database): array
 }
 
 
-
-
 //hhh//
 
 function fetchTasksById(PDO $database, int $listId): array
@@ -36,8 +32,6 @@ function fetchTasksById(PDO $database, int $listId): array
     $tasks =  $sql->fetchAll(PDO::FETCH_ASSOC);
     return $tasks;
 }
-
-
 
 
 //hhh//

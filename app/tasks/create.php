@@ -22,8 +22,8 @@ if (isset($_POST['title'], $_POST['description'], $_POST['deadline'])) {
     $statement->bindParam(':list_id', $listId, PDO::PARAM_STR);
     $statement->bindParam(':user_id', $userId, PDO::PARAM_STR);
 
-
     $statement->execute();
     $_SESSION['user'][] = $statement->fetch(PDO::FETCH_ASSOC);
 }
+
 redirect('/../../create.php');

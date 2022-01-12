@@ -17,4 +17,5 @@ if (isset($_POST['title'])) {
 
     $_SESSION['user'][] = $sql->fetch(PDO::FETCH_ASSOC);
 }
+
 redirect('/../../create.php');

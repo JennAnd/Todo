@@ -13,8 +13,8 @@
     </div>
     <button type="submit" name="submit" class="button">Create list</button>
     <br>
-
 </form>
+
 <?php $viewLists = fetchListsById($database);
 foreach ($viewLists as $list) : ?>
     <div class="list-container">
@@ -55,11 +55,12 @@ foreach ($viewLists as $list) : ?>
                         </label>
                     </form>
                 </td>
+
                 <td class="column-info"><?php echo $taskFetch['title']; ?></td>
                 <td class="column-info"><?php echo $taskFetch['description']; ?></td>
                 <td class="column-info"><?php echo $taskFetch['deadline']; ?></td>
-
                 <td>
+
                     <form action="/update-tasks.php" method="POST">
                         <input type="hidden" name="id" value="<?= $taskFetch['id'] ?>" />
                         <button type="submit">✎</button>

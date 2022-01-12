@@ -25,7 +25,6 @@ if (isset($_POST['title'], $_POST['description'], $_POST['deadline'])) {
 }
 
 
-
 if (isset($_POST['id'])) {
     $id = $_POST['id'];
     $isCompleted = isset($_POST['completed']);

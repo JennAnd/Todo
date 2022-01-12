@@ -14,4 +14,5 @@ if (isset($_POST['title'], $_POST['id'])) {
     $statement->bindParam(':id', $listId, PDO::PARAM_INT);
     $statement->execute();
 }
+
 redirect('/../../create.php');
