@@ -1,8 +1,10 @@
 <?php require __DIR__ . '/app/autoload.php'; ?>
 <?php require __DIR__ . '/views/header.php'; ?>
 
+<!--Fetched a function from functions.php with a loop to fetch tasks with deadline today.-->
 <?php $taskDeadlines = taskDeadlineToday($database); ?>
 
+<!--If user is logged in, the profile image displays.-->
 <?php if (isset($_SESSION['user']['profile_image'])) : ?>
     <img class="profile-image" src="/upload/<?php echo $_SESSION['user']['profile_image'] ?>" alt="users profile picture">
 <?php endif; ?>
@@ -21,6 +23,7 @@
         </tr>
 
         <tr>
+            <!--Loop from function with tasks with deadlines today and display them.-->
             <?php foreach ($taskDeadlines as $taskDeadline) : ?>
                 <td>
                     <form class="completed-tasks" action="/app/tasks/deadlines-today.php" method="POST">

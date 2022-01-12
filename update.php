@@ -1,10 +1,12 @@
 <?php require __DIR__ . '/app/autoload.php'; ?>
 <?php require __DIR__ . '/views/header.php'; ?>
 
+<!--If user is logged in, the profile image displays.-->
 <?php if (isset($_SESSION['user']['profile_image'])) : ?>
     <img class="profile-image" src="/upload/<?php echo $_SESSION['user']['profile_image'] ?>" alt="users profile picture">
 <?php endif; ?>
 
+<!--Form to edit profile.-->
 <h2>Edit you profile</h2><br>
 <form action="/app/users/update/uploads.php" method="post" enctype="multipart/form-data">
     <div class="mb-3">
@@ -14,6 +16,7 @@
         <button type="submit" class="button">Change profile picture</button>
     </div>
 
+    <!--Connected to app/users/update/uploads.php.-->
     <div class="success-message">
         <?php
         if (isset($_SESSION['profile_image'])) :
@@ -29,6 +32,8 @@
         <input class="form-control" type="email" name="changeEmail" id="changeEmail" placeholder="jennifer@jenn.com" required>
         <small class="form-text">Please provide your new email address.</small>
         <button type="submit" class="button">Update your new email</button>
+
+        <!--Success message if the email changed correctly. Connected to app/users/update/email.php.-->
         <div class="success-message">
             <?php if (isset($_SESSION['changeEmail'])) :
                 echo $_SESSION['changeEmail'];
@@ -48,6 +53,7 @@
         <small class="form-text">Please provide your new password (passphrase).</small>
     </div>
 
+    <!--Success message if the password changed correctly. Connected to app/users/update/password.php.-->
     <div class="success-message">
         <?php if (isset($_SESSION['successMessage'])) :
             echo $_SESSION['successMessage'];
@@ -66,6 +72,7 @@
         <button type="submit" class="button">Update your new password</button>
     </div>
 
+    <!--If password and confirm password does not match and if password is less than 16 characters long, display error message here.-->
     <div class="error-message">
         <?php if (isset($_SESSION['errorMessage'])) :
             echo $_SESSION['errorMessage'];

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 require __DIR__ . '/../../autoload.php';
 
+//Change the right users email. Connects with update.php//
 if (isset($_POST['changeEmail'])) {
     $changeEmail = trim(filter_var($_POST['changeEmail'], FILTER_VALIDATE_EMAIL));
 
@@ -16,7 +17,8 @@ if (isset($_POST['changeEmail'])) {
     $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
 
     $sql->execute();
-    $_SESSION['changeEmail'] = "Your new email address was successfully uploaded!";
+    //Success message if email changed correctly.//
+    $_SESSION['changeEmail'] = "Your new email address was successfully changed!";
 };
 
 redirect('/update.php');

@@ -1,6 +1,7 @@
 <?php require __DIR__ . '/app/autoload.php'; ?>
 <?php require __DIR__ . '/views/header.php'; ?>
 
+<!--If user is logged in, the profile image displays.-->
 <?php if (isset($_SESSION['user']['profile_image'])) : ?>
     <img class="profile-image" src="/upload/<?php echo $_SESSION['user']['profile_image'] ?>" alt="users profile picture">
 <?php endif; ?>
@@ -15,6 +16,7 @@
     <br>
 </form>
 
+<!--Fetched a function from functions.php with a loop to fetch and display lists.-->
 <?php $viewLists = fetchListsById($database);
 foreach ($viewLists as $list) : ?>
     <div class="list-container">
@@ -45,6 +47,7 @@ foreach ($viewLists as $list) : ?>
                 <th class="column-title">Delete</th>
             </tr>
 
+            <!--Fetched a function from functions.php with a loop to fetch and display tasks from the right list.-->
             <?php $tasks = fetchTasksById($database, $list['id']);
             foreach ($tasks as $taskFetch) : ?>
                 <td>
@@ -77,8 +80,7 @@ foreach ($viewLists as $list) : ?>
             <?php endforeach; ?>
         </table>
 
-        <!--jkjkjkj-->
-
+        <!--Form when add new tasks to a list.-->
         <details>
             <summary>Add new task</summary>
             <div class="new-list">

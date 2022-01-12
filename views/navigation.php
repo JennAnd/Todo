@@ -6,6 +6,7 @@
             <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/index.php' ? 'active' : ''; ?>" href="/index.php">Home</a>
         </li>
 
+        <!--If user is logged in, the profile image displays.-->
         <?php if (isset($_SESSION['user'])) : ?>
             <li class="nav-item">
                 <a class="nav-link" href="/app/users/logout.php">Logout</a>
@@ -22,6 +23,7 @@
             <li class="nav-item">
                 <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/create.php' ? 'active' : ''; ?>" href="/create.php">Create list</a>
             </li>
+            <!--If you are not logged in you can only view the link Sign in and Create an account in the navigation bar.-->
         <?php else : ?>
             <li class="nav-item">
                 <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/login.php' ? 'active' : ''; ?>" href="/login.php">Sign in</a>

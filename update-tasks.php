@@ -2,7 +2,7 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
 <?php
-
+//Connects the right task when you edit. Connects with app/tasks/update.php//
 if (isset($_POST['id'])) {
     $taskID = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
 
@@ -13,6 +13,7 @@ if (isset($_POST['id'])) {
 }
 ?>
 
+<!--Form to edit tasks.-->
 <form action="/app/tasks/update.php" method="post" enctype="multipart/form-data">
     <h2>Edit task</h2>
     <div class="mb-3">

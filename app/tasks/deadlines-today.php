@@ -25,4 +25,4 @@ if (isset($_POST['id'])) {
 
 
 
-redirect('/../../deadlines-today.php');
+redirect($_SERVER['HTTP_REFERER']);

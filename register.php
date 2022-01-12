@@ -4,8 +4,8 @@
 <h2>Not yet a member?</h2><br>
 <h3>Create an account</h3>
 
+<!--Form for register a new user.-->
 <form action="app/users/register.php" method="post" enctype="multipart/form-data">
-
     <div class="mb-3">
         <label for="name">Name</label>
         <input class="form-control" type="name" name="name" id="email" value="name" required>
@@ -31,6 +31,7 @@
         <button type="submit" class="button">Sign up</button>
     </div>
 
+    <!--If password and confirm password does not match and if password is less than 16 characters long, display error message here from app/users/register.php.-->
     <div class="error-message">
         <?php if (isset($_SESSION['errorMessage'])) :
             echo  $_SESSION['errorMessage'];

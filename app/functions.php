@@ -9,8 +9,7 @@ function redirect(string $path)
 }
 
 
-//hhh//
-
+//A function to fetch lists, connected with the right user and display them. Connected to file create.php.//
 function fetchListsById(PDO $database): array
 {
     $sql = $database->prepare('SELECT * FROM lists WHERE user_id = :id');
@@ -22,8 +21,7 @@ function fetchListsById(PDO $database): array
 }
 
 
-//hhh//
-
+//A function to fetch tasks, connected with the right list and display them. Connected to file create.php.//
 function fetchTasksById(PDO $database, int $listId): array
 {
     $sql = $database->prepare('SELECT * FROM tasks WHERE list_id = :id');
@@ -34,8 +32,7 @@ function fetchTasksById(PDO $database, int $listId): array
 }
 
 
-//hhh//
-
+//A function to fetch tasks with deadline today and display them. Connected to file deadlines-today..php.//
 function taskDeadlineToday(PDO $database): array
 {
     $date = date('Y-m-d');

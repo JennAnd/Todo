@@ -2,7 +2,7 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
 <?php
-
+//Connects the right list when you edit. Connects with app/lists/update.php//
 if (isset($_POST['id'])) {
     $id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
 
@@ -13,7 +13,7 @@ if (isset($_POST['id'])) {
     $updateLists = $sql->fetch(PDO::FETCH_ASSOC);
 }
 ?>
-
+<!--Form to edit lists.-->
 <form action="/app/lists/update.php" method="post" enctype="multipart/form-data">
     <h2>Edit list</h2>
     <div class="mb-3">

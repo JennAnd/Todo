@@ -5,8 +5,7 @@ declare(strict_types=1);
 require __DIR__ . '/../../autoload.php';
 
 
-
-
+//Change the right users password. Connects with update.php//
 if (isset($_POST['changePassword'])) {
     $changePassword = password_hash($_POST['changePassword'], PASSWORD_DEFAULT);
 
@@ -18,10 +17,12 @@ if (isset($_POST['changePassword'])) {
 
     $changePassword = $_POST['changePassword'];
 
+    //Success message if password changed correctly.//
     if (strlen($changePassword) < 16) {
         $_SESSION['errorMessage'] = "Password must be at least 16 characters long!";
         redirect('/update.php');
     }
+
 
     $insertSQL = ("UPDATE users SET password = :password WHERE id = :id");
 
@@ -33,10 +34,9 @@ if (isset($_POST['changePassword'])) {
 
     $sql->execute();
 
-    $_SESSION['successMessage'] = "Your new password was successfully uploaded!";
+    $_SESSION['successMessage'] = "Your new password was successfully changed!";
     redirect("/update.php");
 }
-
 
 
 redirect('/profile.php');

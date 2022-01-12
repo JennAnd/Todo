@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require __DIR__ . '/../../autoload.php';
 
-
+//Change the right users uploaded image. Connects with update.php//
 if (isset($_FILES['profile_image'])) {
     $image = trim(filter_var($_FILES['profile_image']['name'], FILTER_SANITIZE_STRING));
     $endFile =  __DIR__ . '/../../../upload/' . $image;
@@ -27,6 +27,7 @@ if (isset($_FILES['profile_image'])) {
 
     $sql->execute();
 
+    //Success message if image is uploaded correctly.//
     $_SESSION['user'] = $sql->fetch(PDO::FETCH_ASSOC);
     $_SESSION['profile_image'] = "Your profile image was sucessfully uploaded!";
 };
