@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-//hhh//
 
-
+//Complete and uncomplete tasks with checkboxes.//
 if (isset($_POST['id'])) {
     $id = $_POST['id'];
     $isCompleted = isset($_POST['completed']);

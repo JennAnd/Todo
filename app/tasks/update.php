@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-//hhh//
 
+//Edit specific tasks. Connected to file update-tasks.php.//
 if (isset($_POST['title'], $_POST['description'], $_POST['deadline'])) {
     $title = trim(filter_var($_POST['title'], FILTER_SANITIZE_STRING));
     $description = trim(filter_var($_POST['description'], FILTER_SANITIZE_STRING));
@@ -24,7 +24,7 @@ if (isset($_POST['title'], $_POST['description'], $_POST['deadline'])) {
     $_SESSION['user'][] = $statement->fetch(PDO::FETCH_ASSOC);
 }
 
-
+//Complete and uncomplete tasks with checkboxes.//
 if (isset($_POST['id'])) {
     $id = $_POST['id'];
     $isCompleted = isset($_POST['completed']);

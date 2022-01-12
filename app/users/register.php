@@ -5,23 +5,24 @@ declare(strict_types=1);
 require __DIR__ . '/../autoload.php';
 
 
-
+//jkjkjkj//
 if (isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['confPassword'])) {
     $name = trim(filter_var(($_POST['name']), FILTER_SANITIZE_STRING));
     $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $password = $_POST['password'];
 
     if ($_POST['password'] !== $_POST['confPassword']) {
         $_SESSION['errorMessage'] = "Passwords did not match. Please try again!";
         redirect("/register.php");
     }
 
-    $password = $_POST['password'];
-
+    //jkjkjkj//
     if (strlen($password) < 16) {
         $_SESSION['errorMessage'] = "Password must be at least 16 characters long!";
         redirect("/register.php");
     }
+
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     $statement = $database->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
     $statement->bindParam(':name', $name, PDO::PARAM_STR);

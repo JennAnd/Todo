@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-//hhh//
 
+//Delete specific task from list with taskID. Connected to form in file create.php and deadlines-today.php//
 if (isset($_POST['id'])) {
     $taskID = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
 
