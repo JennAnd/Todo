@@ -14,11 +14,11 @@ Follow the link to visit my site: https://github.com/JennAnd/Todo.
 
 # Code Review
 
-Code review written by [Sofia Dersén](https://github.com/username).
+Code review written by [Sofia Dersén](https://github.com/dersen).
 
 1. `Overall` - No comments at all makes it hard to follow your code.
 
-2. `Overall` - No error-messages makes it bit har to understand what is happening as a user. Can be done by adding a `$_SESSION[‘message’][] = “A “great message;`. Then in the file that the user sees check if `$_SESSION[‘message’]` is set and if it is echo the message.
+2. `Overall` - No error-messages makes it bit har to understand what is happening as a user. Can be done by adding a `$_SESSION[‘message’][] = “A great message;`. Then in the file that the user sees check if `$_SESSION[‘message’]` is set and if it is echo the message.
 
 3. `Overall` - No sanitize on any echos (for example `htmlspecialchars()`) from the database.
 
