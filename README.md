@@ -18,11 +18,11 @@ Code review written by [Sofia Dersén](https://github.com/dersen).
 
 1. `Overall` - No comments at all makes it hard to follow your code.
 
-2. `Overall` - No error-messages makes it bit har to understand what is happening as a user. Can be done by adding a `$_SESSION[‘message’][] = “A great message;`. Then in the file that the user sees check if `$_SESSION[‘message’]` is set and if it is echo the message.
+2. `Overall` - No error-messages makes it difficult to understand what is happening as a user. Can be done by adding a `$_SESSION[‘message’][] = “A great message;`. Then in the file that the user "sees" check if `$_SESSION[‘message’]` is set and if it is, echo the message.
 
 3. `Overall` - No sanitize on any echos (for example `htmlspecialchars()`) from the database.
 
-4. `app/user/Register.php:29` - You are setting the $password to the password given by the user. Which menas you are sending a non-hashed password to the db. This can be solved by not redeclaring $password but do the `strlen()` on `$_POST['password']` directly.
+4. `app/user/Register.php:29` - You are setting the $password to the password given by the user. Which menas you are sending a non-hashed password to the db. This can be solved by not redeclaring `$password` but do the `strlen()` on `$_POST['password']` directly.
 
 5. `app/user/Register.php` - Perhaps it would be nice to check if a user already exists when creating a new user. Can be done by first checking if the email already exists in db.
 
