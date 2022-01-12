@@ -2,7 +2,7 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
 <?php if (isset($_SESSION['user']['profile_image'])) : ?>
-    <img class="profile-image" src="/upload/ <?php echo $_SESSION['user']['profile_image'] ?>" alt="users profile picture">
+    <img class="profile-image" src="/upload/<?php echo $_SESSION['user']['profile_image'] ?>" alt="users profile picture">
 <?php endif; ?>
 <article>
     <h1><?php echo $config['title']; ?></h1>

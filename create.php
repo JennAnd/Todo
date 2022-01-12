@@ -34,10 +34,10 @@ foreach ($viewLists as $list) : ?>
                 </form>
             </div>
         </div>
+
         <table>
             <tr class="column-wrapper">
                 <th class="column-title">Completed</th>
-
                 <th class="column-title">Title</th>
                 <th class="column-title">Description</th>
                 <th class="column-title">Deadline</th>
@@ -60,20 +60,17 @@ foreach ($viewLists as $list) : ?>
                 <td class="column-info"><?php echo $taskFetch['deadline']; ?></td>
 
                 <td>
-                    <section>
-                        <form action="/update-tasks.php" method="POST">
-                            <input type="hidden" name="id" value="<?= $taskFetch['id'] ?>" />
-                            <button type="submit">✎</button>
-                        </form>
-                    </section>
+                    <form action="/update-tasks.php" method="POST">
+                        <input type="hidden" name="id" value="<?= $taskFetch['id'] ?>" />
+                        <button type="submit">✎</button>
+                    </form>
                 </td>
+
                 <td>
-                    <section>
-                        <form action="/app/tasks/delete.php" method="POST">
-                            <input type="hidden" name="id" value="<?= $taskFetch['id'] ?>" />
-                            <button type="submit">X</button>
-                        </form>
-                    </section>
+                    <form action="/app/tasks/delete.php" method="POST">
+                        <input type="hidden" name="id" value="<?= $taskFetch['id'] ?>" />
+                        <button type="submit">X</button>
+                    </form>
                 </td>
                 </tr>
             <?php endforeach; ?>
@@ -83,7 +80,6 @@ foreach ($viewLists as $list) : ?>
 
         <details>
             <summary>Add new task</summary>
-
             <div class="new-list">
                 <div class="mb-3">
                     <form action="/app/tasks/create.php" method="post" enctype="multipart/form-data">
@@ -99,12 +95,10 @@ foreach ($viewLists as $list) : ?>
                 <input class="form-control" type="description" name="description" id="description" value="describe your task" required>
             </div>
 
-
             <div class="mb-3">
                 <label for="deadline">Deadline</label>
                 <input class="form-control" type="date" name="deadline" id="deadline" value="dd-mm-yyyy" required>
             </div>
-
             <button type="submit" class="task-button">Add task</button>
 
     </div>

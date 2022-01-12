@@ -30,32 +30,27 @@
                         </label>
                     </form>
                 </td>
+
                 <td><?php echo $taskDeadline['title']; ?></td>
                 <td><?php echo $taskDeadline['description']; ?></td>
                 <td><?php echo $taskDeadline['deadline']; ?></td>
 
                 <td>
-                    <section>
-
-                        <form action="/update-tasks.php" method="POST">
-                            <input type="hidden" name="id" value="<?= $taskDeadline['id'] ?>" />
-                            <button type="submit">✎</button>
-                        </form>
-                    </section>
+                    <form action="/update-tasks.php" method="POST">
+                        <input type="hidden" name="id" value="<?= $taskDeadline['id'] ?>" />
+                        <button type="submit">✎</button>
+                    </form>
                 </td>
+
                 <td>
-                    <section>
-                        <form action="/app/tasks/delete.php" method="POST">
-                            <input type="hidden" name="id" value="<?= $taskDeadline['id'] ?>" />
-                            <button type="submit">X</button>
-                        </form>
-                    </section>
+                    <form action="/app/tasks/delete.php" method="POST">
+                        <input type="hidden" name="id" value="<?= $taskDeadline['id'] ?>" />
+                        <button type="submit">X</button>
+                    </form>
                 </td>
             <?php endforeach; ?>
         </tr>
 </div>
 </table>
-</div>
-</div>
 
 <?php require __DIR__ . '/views/footer.php'; ?>
