@@ -15,7 +15,6 @@ if (isset($_POST['changePassword'])) {
         redirect('/update.php');
     }
 
-    $changePassword = $_POST['changePassword'];
 
     //Success message if password changed correctly.//
     if (strlen($changePassword) < 16) {
