@@ -23,6 +23,14 @@
             <li class="nav-item">
                 <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/create.php' ? 'active' : ''; ?>" href="/create.php">Create list</a>
             </li>
+            <form action="/search.php" method="POST" class="search">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="search" placeholder="Search for a List or Task">
+                    <div class="input-group-append">
+                        <button class="btn-secondary" type="submit">Search</button>
+                    </div>
+                </div>
+            </form>
             <!--If you are not logged in you can only view the link Sign in and Create an account in the navigation bar.-->
         <?php else : ?>
             <li class="nav-item">
