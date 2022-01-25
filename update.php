@@ -81,4 +81,17 @@
     </div>
 </form>
 
-<?php require __DIR__ . '/views/footer.php'; ?>
+<!-- delete account -->
+<div class="mb-3">
+    <form action="/app/users/delete.php" method="post">
+
+        <label for="delete">
+            <h3>Delete account</h3> (this cannot be undone)
+        </label>
+
+        <input class="form-control" type="password" name="delete" required>
+        <label for="delete"><small class="form-text">Enter your password to confirm</small></label>
+
+        <div><button class="btn btn-danger" type="submit" onclick="return confirm('Are you sure? This cannot be undone.')">Delete my account</button></div>
+
+        <?php require __DIR__ . '/views/footer.php'; ?>
