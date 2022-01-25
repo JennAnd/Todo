@@ -44,3 +44,7 @@ Tested by the following people:
 
 1. Johanna Jönsson
 2. Hanna Rosenberg
+
+# Wunderlist+
+Agnes Skönvall:https://github.com/agnesskonvall added search + function for deleting user along with tasks and lists.
+View here: https://github.com/JennAnd/Todo/pull/2
